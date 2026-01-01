@@ -1,18 +1,20 @@
 /// MIT task: A-task (1)
 
-function countLetter(letter, word) {
-  let count = 0;
-  let i = 0;
+// function countLetter(letter, word) {
+//   let count = 0;
+//   let i = 0;
 
-  while (i <= word.length - 1) {
-    if (word[i] == letter) {
-      count = count + 1;
-    }
-    i = i + 1;
-  }
-  return count;
-}
-console.log(countLetter("n", "pennsylvania"));
+//   while (i <= word.length - 1) {
+//     if (word[i] == letter) {
+//       count = count + 1;
+//     }
+//     i = i + 1;
+//   }
+//   return count;
+// }
+// console.log(countLetter("n", "pennsylvania"));
+
+////////=========================================/////////////////////
 
 // console.log("Jack Ma maslahatlari");
 // const list = [

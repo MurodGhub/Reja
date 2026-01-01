@@ -1,56 +1,51 @@
-console.log("Web serverni boshlash");
-const express = require("express");
-const app = express();
+// const http = require("http");
+// const mongodb = require("mongodb");
+
+// let db;
+// const connectionString =
+//   "mongodb+srv://norqulovmurodbek07_db_user:lvxUDs1H8u4zGCYz@cluster0.dfpqzwj.mongodb.net/test";
+
+// mongodb.connect(
+//   connectionString,
+//   {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   },
+//   (err, client) => {
+//     if (err) console.log("ERROR on connection MongoDB");
+//     else {
+//       console.log("MongoDB connection succed");
+//       // module.exports = client;
+//       const app = require("./views/app");
+//       const server = http.createServer(app);
+//       let PORT = 3000;
+//       server.listen(PORT, function () {
+//         console.log(
+//           `The server is running successfully on port: ${PORT}, http://localhost:${PORT}`
+//         );
+//       });
+//     }
+//   }
+// );
+
 const http = require("http");
-const fs = require("fs");
+const mongodb = require("mongodb");
 
-let user;
-fs.readFile("database/user.json", "utf8", (err, data) => {
-  if (err) {
-    console.log("ERROR:", err);
-  } else {
-    user = JSON.parse(data);
-  }
+let db;
+const connectionString =
+  "mongodb+srv://norqulovmurodbek07_db_user:lvxUDs1H8u4zGCYz@cluster0.dfpqzwj.mongodb.net/test";
+
+mongodb.connect(connectionString, { useNewUrlParser: true }, (err, client) => {
+  if (err) return console.log("MongoDB connection ERROR");
+
+  db = client.db("test");
+  console.log("MongoDB connection succed");
+
+  const app = require("./views/app");
+  const server = http.createServer(app);
+  server.listen(3000, () => console.log("Server running on port 3000"));
 });
 
-// 1 Kirish code
-app.use(express.static("public"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// 2: Session code
-
-// 3 Ciews code
-app.set("views", "views");
-app.set("view engine", "ejs");
-
-// 4 Routing cocde
-
-// app.get("/", function (req, res) {
-//   res.end(`<h1 style="background: red">HELLO WORLD by Morris</h1>`);
-// });
-
-// app.get("/gift", function (req, res) {
-//   res.end(`<h1>Siz sovgalar bolimidasiz</h1>`);
-// });
-
-app.post("/create-item", (req, res) => {
-  console.log(req.body);
-  res.json({ test: "success" });
-});
-
-app.get(`/author`, (req, res) => {
-  res.render("author", { user: user });
-});
-
-app.get("/", function (req, res) {
-  res.render("reja");
-});
-
-const server = http.createServer(app);
-let PORT = 3000;
-server.listen(PORT, function () {
-  console.log(
-    `The server is running successfully on port: ${PORT}, http://localhost:${PORT}`
-  );
-});
+module.exports = {
+  getDb: () => db,
+};
