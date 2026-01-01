@@ -1,3 +1,21 @@
+/// MIT task: B-task (2)
+
+function countDigits(password) {
+  let numbers = 0;
+  let index = 0;
+
+  while (index < password.length) {
+    if (password[index] > 1 && password[index] <= 9) {
+      numbers++;
+    }
+    index++;
+  }
+
+  return numbers;
+}
+
+console.log(countDigits("Pa$$w0rd_2026_Hacker99"));
+
 /// MIT task: A-task (1)
 
 // function countLetter(letter, word) {
