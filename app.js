@@ -77,6 +77,7 @@ fs.readFile("database/user.json", "utf8", (err, data) => {
 
 //Mongo DB chaqirish
 const db = require("./server").db();
+const mongodb = require("mongodb");
 
 //1: Kirish Kodlari
 app.use(express.static("public")); //public ichidagi filelarga/ma'lumotlarga dostup beradi
@@ -92,31 +93,25 @@ app.set("view engine", "ejs"); //BSSR backend ichida frontendni qurib olish
 
 //4: Routing code
 
-/* app.get("/hello", function(req, res) {
-    res.end("Hello ISMAIL");
-}); 
-
-app.get("/gift", function(req, res) {
-    res.end('Siz sovgalar sahifasidasiz');
-}); */
-
 app.post("/create-item", (req, res) => {
   console.log("user entered /create-item");
   console.log(req.body);
   const new_reja = req.body.reja;
   db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
-    if (err) {
-      console.log(err);
-      res.end("something went wrong");
-    } else {
-      res.end("successfully added");
-    }
+    console.log(data.ops);
+    res.json(data.ops[0]);
   });
 });
 
-// app.get("/author", (req, res) => {
-//     res.render("author", {user: user});
-// });
+app.post("/delete-item", (req, res) => {
+  const id = req.body.id;
+  db.collection("plans").deleteOne(
+    { _id: new mongodb.ObjectId(id) },
+    function (err, data) {
+      res.json({ state: "success" });
+    }
+  );
+});
 
 app.get("/", function (req, res) {
   console.log("user entered /");
@@ -127,7 +122,6 @@ app.get("/", function (req, res) {
         console.log(err);
         res.end("something went wrong");
       } else {
-        // console.log(data);
         res.render("reja", { items: data });
       }
     });
