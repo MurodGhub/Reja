@@ -1,57 +1,85 @@
+/// MIT task: Task D:
+/* Shunday function tuzing, u 2ta string parametr ega bolsin, hamda agar har ikkala string bir hil harflardan iborat bolsa true aks holda false qaytarsin MASALAN checkContent("mitgroup", "gmtiprou") return qiladi true; */
+
+// Solution:
+
+function checkContent(amazon, nazoma) {
+  if (amazon.length !== nazoma.length) {
+    return false;
+  }
+
+  let array1 = amazon.split("");
+  let array2 = nazoma.split("");
+
+  for (let letter of array1) {
+    if (array2.includes(letter) === false) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(checkContent("amazon", "nazoma"));
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
 /// MIT task: Task C:
 /* Shunday class tuzing tuzing nomi Shop, va uni constructoriga 3 hil mahsulot pass bolsin, hamda classning 3ta methodi bolsin, biri qoldiq, biri sotish va biri qabul. Har bir method ishga tushgan vaqt ham log qilinsin.
 MASALAN: const shop = new Shop(4, 5, 2); shop.qoldiq() return hozir 20:40da 4ta non, 5ta lagmon va 2ta cola mavjud! shop.sotish('non', 3) & shop.qabul('cola', 4) & shop.qoldiq() return hozir 20:50da 1ta non, 5ta lagmon va 6ta cola mavjud! */
 
 // Solution for Task C
 
-class Wawa {
-  constructor(lays, sut, cola) {
-    this.lays = lays;
-    this.sut = sut;
-    this.cola = cola;
-  }
+// class Wawa {
+//   constructor(lays, sut, cola) {
+//     this.lays = lays;
+//     this.sut = sut;
+//     this.cola = cola;
+//   }
 
-  getVaqt() {
-    const hozir = new Date();
-    const minut =
-      hozir.getMinutes() < 10 ? "0" + hozir.getMinutes() : hozir.getMinutes();
-    return `${hozir.getHours()}:${minut}`;
-  }
+//   getVaqt() {
+//     const hozir = new Date();
+//     const minut =
+//       hozir.getMinutes() < 10 ? "0" + hozir.getMinutes() : hozir.getMinutes();
+//     return `${hozir.getHours()}:${minut}`;
+//   }
 
-  qoldiq() {
-    console.log(
-      `hozir ${this.getVaqt()}da ${this.lays}ta lays, ${this.sut}ta sut va ${
-        this.cola
-      }ta cola mavjud!`
-    );
-  }
+//   qoldiq() {
+//     console.log(
+//       `hozir ${this.getVaqt()}da ${this.lays}ta lays, ${this.sut}ta sut va ${
+//         this.cola
+//       }ta cola mavjud!`
+//     );
+//   }
 
-  sotish(nomi, soni) {
-    if (nomi === "lays") {
-      this.lays -= soni;
-    } else if (nomi === "sut") {
-      this.sut -= soni;
-    } else if (nomi === "cola") {
-      this.cola -= soni;
-    }
-    console.log(`${this.getVaqt()}da ${soni}ta ${nomi} sotildi`);
-  }
+//   sotish(nomi, soni) {
+//     if (nomi === "lays") {
+//       this.lays -= soni;
+//     } else if (nomi === "sut") {
+//       this.sut -= soni;
+//     } else if (nomi === "cola") {
+//       this.cola -= soni;
+//     }
+//     console.log(`${this.getVaqt()}da ${soni}ta ${nomi} sotildi`);
+//   }
 
-  qabul(mahsulot, miqdor) {
-    if (mahsulot === "lays") this.lays += miqdor;
-    if (mahsulot === "sut") this.sut += miqdor;
-    if (mahsulot === "cola") this.cola += miqdor;
+//   qabul(mahsulot, miqdor) {
+//     if (mahsulot === "lays") this.lays += miqdor;
+//     if (mahsulot === "sut") this.sut += miqdor;
+//     if (mahsulot === "cola") this.cola += miqdor;
 
-    console.log(`${this.getVaqt()}da ${miqdor}ta ${mahsulot} qabul qilindi`);
-  }
-}
+//     console.log(`${this.getVaqt()}da ${miqdor}ta ${mahsulot} qabul qilindi`);
+//   }
+// }
 
-const myShop = new Wawa(2, 4, 3);
+// const myShop = new Wawa(2, 4, 3);
 
-myShop.qoldiq();
-myShop.sotish("lays", 3);
-myShop.qabul("cola", 4);
-myShop.qoldiq();
+// myShop.qoldiq();
+// myShop.sotish("lays", 3);
+// myShop.qabul("cola", 4);
+// myShop.qoldiq();
+
+////////////////////////////////////////////////////////////////////////////////////
+
 /// MIT task: Task B
 
 // function countDigits(password) {
