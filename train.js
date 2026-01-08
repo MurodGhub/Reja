@@ -1,25 +1,41 @@
+/// MIT task: Task E:
+/*
+Shunday function tuzing, u bitta string argumentni qabul qilib osha stringni teskari qilib return qilsin.
+MASALAN: getReverse("hello") return qilsin "olleh"
+*/
+
+// Solution:
+function getReverse(morrisbek) {
+  let letters = morrisbek.split("");
+  let reverseLetters = letters.reverse();
+  let result = reverseLetters.join("");
+
+  return result;
+}
+console.log(getReverse("morrisbek"));
+
 /// MIT task: Task D:
 /* Shunday function tuzing, u 2ta string parametr ega bolsin, hamda agar har ikkala string bir hil harflardan iborat bolsa true aks holda false qaytarsin MASALAN checkContent("mitgroup", "gmtiprou") return qiladi true; */
 
 // Solution:
 
-function checkContent(amazon, nazoma) {
-  if (amazon.length !== nazoma.length) {
-    return false;
-  }
+// function checkContent(amazon, nazoma) {
+//   if (amazon.length !== nazoma.length) {
+//     return false;
+//   }
 
-  let array1 = amazon.split("");
-  let array2 = nazoma.split("");
+//   let array1 = amazon.split("");
+//   let array2 = nazoma.split("");
 
-  for (let letter of array1) {
-    if (array2.includes(letter) === false) {
-      return false;
-    }
-  }
-  return true;
-}
+//   for (let letter of array1) {
+//     if (array2.includes(letter) === false) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
 
-console.log(checkContent("amazon", "nazoma"));
+// console.log(checkContent("amazon", "nazoma"));
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
