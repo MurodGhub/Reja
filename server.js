@@ -21,7 +21,7 @@ mongodb.connect(
       let PORT = 4005;
       server.listen(PORT, function () {
         console.log(
-          `The server is running successfully on  PORT: ${PORT}, http://localhost:${PORT}`
+          `The server is running successfully on  PORT: ${PORT}, http://72.60.76.73:${PORT}`
         );
       });
     }
