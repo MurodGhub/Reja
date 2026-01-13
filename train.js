@@ -1,3 +1,29 @@
+/// MIT task: Task G:
+
+/*
+Yagona parametrga ega function tuzing. Va bu function parametr orqalik integer ma'lumot turlariga ega bo'lgan bir arrayni qabul qilsin. Ushbu function bizga arrayning tarkibidagi birinchi eng katta qiymatning indeksini qaytarsin. MASALAN: getHighestIndex([5, 21, 12, 21 ,8]); return qiladi 1 sonini Yuqoridagi misolda, birinchi indeksda 21 joylashgan. Va bu 21 soni arrayning tarkibidagi birinchi eng katta son hisobladi va bizga uning indexi 1 taytaradi
+*/
+
+// Solution:
+
+function getHighestIndex(array) {
+  let max = array[0];
+  let maxIndex = 0;
+
+  for (let index = 0; index < array.length; index++) {
+    if (array[index] > max) {
+      max = array[index];
+      maxIndex = index;
+    }
+  }
+  return maxIndex;
+}
+
+console.log(getHighestIndex([5, 21, 12, 21, 8]));
+console.log(getHighestIndex([3, 7, 7, 2, 7]));
+console.log(getHighestIndex([10, 9, 8, 10]));
+console.log(getHighestIndex([3, 4, 3, 6, 1]));
+
 /// MIT task: Task F:
 /*
 Yagona string argumentga ega findDoublers nomli function tuzing
@@ -6,21 +32,21 @@ true yokida false natija qaytarsin.
 MASALAN: findDoublers("hello"); natija true qaytadi. Sababi ikki marotaba takrorlangan 'll' harfi mavjud!
 */
 
-function findDoublers(string) {
-  let checked = "";
+// function findDoublers(string) {
+//   let checked = "";
 
-  for (let letter of string) {
-    if (checked.includes(letter)) {
-      return true;
-    }
-    checked = checked + letter;
-  }
+//   for (let letter of string) {
+//     if (checked.includes(letter)) {
+//       return true;
+//     }
+//     checked = checked + letter;
+//   }
 
-  return false;
-}
+//   return false;
+// }
 
-console.log(findDoublers("facebook"));
-console.log(findDoublers("honda"));
+// console.log(findDoublers("facebook"));
+// console.log(findDoublers("honda"));
 
 /// MIT task: Task E:
 /*
